@@ -17,9 +17,9 @@ def init():
     globals.set_value('high', 0)
 
     # 生成字符串图标识
-    globals.set_value('PATTERN_ASCII', 1)
+    globals.set_value('PATTERN_ASCII', 0)
     # 生成像素图标识
-    globals.set_value('PATTERN_PIXEL', 0)
+    globals.set_value('PATTERN_PIXEL', 1)
 
     # 采样率
     globals.set_value('sample_rate', 0.4)
@@ -33,7 +33,7 @@ def init():
     # 从原视频截取的所有帧文件夹路径
     globals.set_value('frames_of_original', './project/frames_of_original/')
     # 原视频素材名称
-    globals.set_value('name_of_original_video', './project/miku.mp4')
+    globals.set_value('name_of_original_video', './project/heita.mp4')
     # 转为ASCII形式图片的每一帧文件夹路径
     globals.set_value('frames_of_ascii', './project/frames_of_ascii/')
     # 生成的pixel图像集
@@ -42,12 +42,12 @@ def init():
     name_of_audio = globals.get_value('project_folder') + os.path.basename(globals.get_value('name_of_original_video')).split('.')[0] + '.mp3'
     globals.set_value('name_of_audio', name_of_audio)
     # 与原视频速度相同的无声像素动画名称
-    name_of_no_speed_video = globals.get_value('project_folder') + 'soundless_' + os.path.basename(globals.get_value('name_of_original_video')).split('.')[
+    soundless_video = globals.get_value('project_folder') + 'soundless_' + os.path.basename(globals.get_value('name_of_original_video')).split('.')[
         0] + '.mp4'
-    globals.set_value('name_of_no_speed_video', name_of_no_speed_video)
+    globals.set_value('soundless_video', soundless_video)
     # 最终视频
-    name_of_final_video = globals.get_value('project_folder') + 'final_' + os.path.basename(globals.get_value('name_of_original_video')).split('.')[0] + '.mp4'
-    globals.set_value('name_of_final_video', name_of_final_video)
+    final_video = globals.get_value('project_folder') + 'final_' + os.path.basename(globals.get_value('name_of_original_video')).split('.')[0] + '.mp4'
+    globals.set_value('final_video', final_video)
 
     # 点阵模式使用的字符串
     # pointMatrix = list('⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿⡀⡁⡂⡃⡄⡅⡆⡇⡈⡉⡊⡋⡌⡍⡎⡏⡐⡑⡒⡓⡔⡕⡖⡗⡘⡙⡚⡛⡜⡝⡞⡟⡠⡡⡢⡣⡤⡥⡦⡧⡨⡩⡪⡫⡬⡭⡮⡯⡰⡱⡲⡳⡴⡵⡶⡷⡸⡹⡺⡻⡼⡽⡾⡿⢀⢁⢂⢃⢄⢅⢆⢇⢈⢉⢊⢋⢌⢍⢎⢏⢐⢑⢒⢓⢔⢕⢖⢗⢘⢙⢚⢛⢜⢝⢞⢟⢠⢡⢢⢣⢤⢥⢦⢧⢨⢩⢪⢫⢬⢭⢮⢯⢰⢱⢲⢳⢴⢵⢶⢷⢸⢹⢺⢻⢼⢽⢾⢿⣀⣁⣂⣃⣄⣅⣆⣇⣈⣉⣊⣋⣌⣍⣎⣏⣐⣑⣒⣓⣔⣕⣖⣗⣘⣙⣚⣛⣜⣝⣞⣟⣠⣡⣢⣣⣤⣥⣦⣧⣨⣩⣪⣫⣬⣭⣮⣯⣰⣱⣲⣳⣴⣵⣶⣷⣸⣹⣺⣻⣼⣽⣾⣿')

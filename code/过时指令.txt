@@ -1,0 +1,81 @@
+这里包含了 被更简洁指令代替了的指令
+
+
+'''
+    #视频合帧
+    os.system("ffmpeg -i " +
+              frames_of_ascii +
+              "%04d.png" +
+              " -c:v libx264 -vf fps=" +
+              str(orgFrames) +
+              " -pix_fmt yuv420p " +
+              name_of_generation
+              )
+
+    #视频调速
+    os.system("ffmpeg -i " +
+              name_of_generation +
+              " -filter:v " +
+              "\"setpts=" +
+              str(orgFrames/frames) +
+              "*PTS\" " +
+              name_of_nor_speed_vedio
+             )
+    '''
+
+
+def ascii_art(file):
+    im = Image.open(file)
+
+    # Compute letter aspect ratio
+
+    font = ImageFont.truetype(fonts, 14)
+    aspect_ratio = font.getsize("x")[0] / font.getsize("x")[1]
+    new_im_size = np.array(
+        [im.size[0] * sample_rate, im.size[1] * sample_rate * aspect_ratio]
+    ).astype(int)
+
+    # Downsample the image
+    im = im.resize(new_im_size)
+
+    # Keep a copy of image for color sampling
+    im_color = np.array(im)
+
+    # Convert to gray scale image
+    im = im.convert("L")
+
+    # Convert to numpy array for image manipulation
+    im = np.array(im)
+
+    # Defines all the symbols in ascending order that will form the final ascii
+    symbols = np.array(list(" .-+=^!*vMNwxXZzA"))
+
+    # Normalize minimum and maximum to [0, max_symbol_index)
+    if im.max() != im.min():
+       im = (im - im.min()) / (im.max() - im.min()) * (symbols.size - 1)
+
+    # Generate the ascii art
+    ascii = symbols[im.astype(int)]
+
+    # Create an output image for drawing ascii text
+    letter_size = font.getsize("x")
+    im_out_size = new_im_size * letter_size
+    bg_color = "black"
+    im_out = Image.new("RGB", tuple(im_out_size), bg_color)
+    draw = ImageDraw.Draw(im_out)
+
+    # Draw text
+    y = 0
+    for i, line in enumerate(ascii):
+        for j, ch in enumerate(line):
+            color = tuple(im_color[i, j])  # sample color from original image
+            draw.text((letter_size[0] * j, y), ch[0], fill=color, font=font)
+        y += letter_size[1]  # increase y by letter height
+
+    # image cut
+    c_w = im_out.width / 2
+    c_h = im_out.height / 2
+    im_out = im_out.crop((c_w-1024, c_h-512, c_w+1024, c_h+512))
+
+    # Save image file
+    im_out.save(os.path.join(work_path + "frames_of_ascii/" + os.path.basename(file)))
