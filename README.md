@@ -49,7 +49,7 @@ From the group of University of Liverpool
 
   
 
-- ** Compatibility and accessibility**： 
+- **Compatibility and accessibility**： 
 
   
 
@@ -61,7 +61,7 @@ From the group of University of Liverpool
 
   
 
-- ** Lower resource requirements**： 
+- **Lower resource requirements**： 
 
   
 
@@ -117,7 +117,7 @@ From the group of University of Liverpool
 
   
 
-- ** Historical record**： 
+- **Historical record**： 
 
   
 
