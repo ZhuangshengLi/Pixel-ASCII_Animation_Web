@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compare</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-size: cover;
+        }
+
+        .compare {
+            display: grid;
+        }
+
+        .compare * {
+        /* 网格区域设置为 1/1 */
+        width: 100vw;      /* 宽度设置为视口宽度的 100% */
+        height: 100vh;     /* 高度设置为视口高度的 100% */
+        grid-area: 1 / 1;  /* 保持网格区域设置 */
+        }
+
+        .compare section {
+        /* 确保 section 元素能够充满整个屏幕 */
+        display: flex;         /* 使用 flex 布局 */
+        justify-content: center; /* 水平居中 */
+        align-items: center;     /* 垂直居中 */
+        min-height: 100vh;       /* 最小高度为视口高度 */
+        }
+
+        .compare img {
+        max-width: 100%;       /* 最大宽度为 100% */
+        max-height: 100vh;     /* 最大高度为视口高度 */
+        object-fit: contain;   /* 保持内容完整可见 */
+        }
+
+
+        .before {
+            clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+        }
+
+        .after {
+            clip-path: inset(0 0 0 var(--pos, 50%));
+        }
+
+        #range {
+            z-index: 1;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        #range::-webkit-slider-thumb {
+            appearance: none;
+            width: 10px;
+            height: 100vh;
+            background-image: linear-gradient(to bottom,
+                    #91defe,
+                    #99c0f9,
+                    #bdb6ec,
+                    #d7b3e3,
+                    #efb3d5,
+                    #f9bccc);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="compare">
+        <section class="before">
+            <img src="../static/images/05.jpg" alt="" />
+        </section>
+        <section class="after">
+            <img src="../static/images/06.jpg" alt="" />
+        </section>
+        <input type="range" id="range">
+    </div>
+
+</body>
+
+<script>
+    const range = document.querySelector('input');
+    range.oninput = function () {
+        // 变量 --pos 的值为 range 的值
+        document.querySelector('.compare').style.setProperty('--pos', range.value + '%');
+    };
+</script>
+
+</html>
