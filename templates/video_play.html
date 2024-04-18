@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <video controls width="720" controls autoplay>
+    {% if video_name %}
+    <source src={{ url_for('static', filename='videos/' + video_name) }} type="video/mp4">
+    {% else %}
+    <p>Video file is not available.</p>
+    {% endif %}
+    </video>
+
+    <h2>Download Video</h2>
+    <a href="{{ url_for('static', filename='videos/' + video_name) }}" download="{{ video_name }}">
+        Download Processed Video
+    </a>
+</body>
+</html>

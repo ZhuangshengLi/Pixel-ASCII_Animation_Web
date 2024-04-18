@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>Sample Showing</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #f0f0f0;
+            background-image: url("{{ url_for('static', filename='images/SamplePIC.jpg') }}"); /* 添加背景图片 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中显示 */
+            position: relative;
+        }
+
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #eaeaea;
+            padding: 10px;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+
+        .navbar a,
+        .navbar a:visited,
+        .navbar a:hover,
+        .navbar a:active {
+            text-decoration: none;
+            color: black;
+            background-color: transparent;
+            margin: 2px;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:last-child {
+            margin-left: auto;
+        }
+
+        .navbar a:nth-last-child(2) {
+            margin-left: 1100px;
+        }
+
+             /* 分割线样式 */
+         .divider {
+             position: absolute;
+             top: 0;
+             left: 50%;
+             height: 100%;
+             width: 5px;
+             background-color: #91b083;
+             z-index: 5;
+         }
+
+
+        /*图标格式*/
+        .material-symbols-outlined {
+            font-variation-settings:
+                    'FILL' 0,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 48
+        }
+
+        /*[[me]部分效果*/
+        /* 侧边栏样式 */
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #1c1c1c;
+            overflow-x: hidden;
+            transition: 0.5s; /* 动画过渡效果 */
+            padding-top: 60px;
+        }
+
+        /* 侧边栏链接样式 */
+        .nav-link {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* 鼠标悬停在链接上时的效果 */
+        .nav-link:hover {
+            background-color: #555;
+        }
+
+        /* 页面颜色变暗的覆盖层 */
+        .overlay {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.5);
+            overflow-x: hidden;
+            transition: 0.5s;
+            display: none;
+        }
+
+        /* contact me部分 模态框（Modal）样式 */
+        .modal {
+            display: none; /* 默认隐藏模态框 */
+            position: fixed; /* 固定定位 */
+            z-index: 1; /* 置于顶层 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 全屏宽 */
+            height: 100%; /* 全屏高 */
+            overflow: auto; /* 超出滚动 */
+            background-color: rgb(0,0,0); /* 背景颜色 */
+            background-color: rgba(0,0,0,0.4); /* 黑色背景透明度 */
+        }
+
+        /* 模态框内容 */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% 从顶部和自动水平居中 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 900px; /* 宽度 */
+            height: 400px; /* 高度 */
+        }
+
+        textarea#userInput{
+            width: calc(100% - 40px);
+            height: 250px;
+            margin-bottom: 10px;
+            padding: 10px; /* 内边距 */
+            border: 1px solid #ddd; /* 边框颜色 */
+            border-radius: 5px; /* 轻微的圆角边框 */
+            resize: none; /* 禁止调整大小 */
+        }
+        /* 提交和取消按钮样式 */
+        .modal-buttons button {
+            margin-right: 10px; /* 为按钮添加右边距 */
+        }
+        /* 关闭按钮（x） */
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .big-title {
+            position: fixed;
+            top: 370px; /* 调整文字显示的垂直位置 */
+            width: 100%;
+            text-align: center;
+            font-size: 84px;
+            font-family: 'Arial', sans-serif; /* 字体 */
+            color: #f5ffbc; /* 字体颜色 */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 2); /* 添加阴影效果 */
+            z-index: 1000; /* 确保文字显示在最上层 */
+        }
+
+    </style>
+
+    <style>
+        body {
+            transition: background-image 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+<div class="big-title">PIX | ASC</div>
+
+<div class="navbar">
+    <a href="#" title="Me"><span class="material-symbols-outlined">account_circle</span></a>
+    <a href="#" title="Information"><span class="material-symbols-outlined">quiz</span></a>
+    <a href="#" title="Contact us"><span class="material-symbols-outlined">forum</span></a>
+    <a href="javascript:window.history.back()" title="Back"><span class="material-symbols-outlined">undo</span></a>
+    <a href="{{ url_for('index') }}" title="Home"><span class="material-symbols-outlined">home</span></a>
+</div>
+
+
+<!-- [[me]侧边栏 -->
+<div id="sideNav" class="side-nav">
+    <a href="#" class="nav-link">my profile</a>
+    <a href="#" class="nav-link">log out</a>
+    <a href="#" class="nav-link">?anythingElse?</a>
+</div>
+
+<!--information侧边栏-->
+<div id="infoNav" class="side-nav">
+    <a href="#" class="nav-link">foreword</a>
+    <a href="#" class="nav-link">comment</a>
+    <a href="#" class="nav-link">cited literatures</a>
+    <a href="#" class="nav-link">we say..</a>
+</div>
+
+<!-- contact me模态框（Modal） -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Say anything, we can see</h3>
+        <textarea id="userInput" placeholder="Hi,message here..."></textarea>
+        <div class="modal-bottons">
+            <button id="submitBtn">Submit</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const body = document.body;
+
+            // 创建一个全屏的透明层来捕捉鼠标事件，避免事件处理被其他元素阻断
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '10%';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.zIndex = '4'; // 确保它在页面内容之上但在模态窗口之下
+            body.appendChild(overlay);
+
+            // 处理鼠标移动事件
+            overlay.addEventListener('mousemove', function (e) {
+                const width = window.innerWidth;
+                const mouseX = e.clientX;
+                if (mouseX < width / 2) {
+                    // 鼠标在左半边
+                    body.style.backgroundImage = 'url(static/images/1.jpg)';
+                } else {
+                    // 鼠标在右半边
+                    body.style.backgroundImage = 'url(static/images/2.jpg)';
+                }
+            });
+
+            // 当鼠标不在 overlay 上时恢复原始背景
+            overlay.addEventListener('mouseout', function () {
+                body.style.backgroundImage = 'url(static/images/SamplePIC.jpg)';
+            });
+        });
+
+
+/*me部分*/
+    // 获取侧边栏元素
+    var sideNav = document.getElementById('sideNav');
+    // 获取覆盖层元素
+    var overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    // 将覆盖层添加到页面中
+    document.body.appendChild(overlay);
+
+    // 获取打开侧边栏的按钮
+    var meBtn = document.querySelector('.navbar a[title="Me"]');
+
+    // 点击按钮打开侧边栏
+    meBtn.onclick = function() {
+        sideNav.style.width = '25%'; // 设置侧边栏宽度为屏幕的1/4
+        overlay.style.display = 'block'; // 显示覆盖层
+    }
+
+    // 点击覆盖层关闭侧边栏
+    overlay.onclick = function() {
+        sideNav.style.width = '0';
+        overlay.style.display = 'none';
+    }
+
+    /*Information栏*/
+    // 获取 Information 侧边栏元素
+    var infoNav = document.getElementById('infoNav');
+    // 获取 Information 按钮
+    var infoBtn = document.querySelector('.navbar a[title="Information"]');
+
+    // 点击 Information 按钮打开侧边栏
+    infoBtn.onclick = function() {
+        infoNav.style.width = '25%'; // 设置侧边栏宽度为屏幕的1/4
+        overlay.style.display = 'block'; // 显示覆盖层
+    }
+
+    // 使用同一个覆盖层元素关闭侧边栏
+    overlay.onclick = function() {
+        // 关闭所有可能打开的侧边栏
+        closeSideNavs();
+    }
+
+    function closeSideNavs() {
+        // 设置所有侧边栏的宽度为 0 来关闭它们
+        var sideNavs = document.getElementsByClassName('side-nav');
+        for(var i = 0; i < sideNavs.length; i++) {
+            sideNavs[i].style.width = '0';
+        }
+        // 隐藏覆盖层
+        overlay.style.display = 'none';
+    }
+
+    /*contact me部分*/
+    // 获取模态框元素
+    var modal = document.getElementById('contactModal');
+    // 获取打开模态框的按钮
+    var btn = document.querySelector('.navbar a[title="Contact us"]');
+    // 获取关闭按钮元素
+    var span = document.getElementsByClassName('close-button')[0];
+    // 获取取消按钮元素
+    var cancelBtn = document.getElementById('cancelBtn');
+    // 获取提交按钮
+    var submitBtn = document.getElementById('submitBtn');
+    // 获取用户输入元素
+    var userInput = document.getElementById('userInput');
+
+    // 点击按钮打开模态框
+    btn.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    // 点击（x）按钮关闭模态框
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // 点击取消按钮关闭模态框
+    cancelBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // 点击模态框外部时关闭模态框
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+        if (event.target === overlay){
+            closeSideNavs();
+        }
+    }
+
+    // 点击提交按钮发送邮件
+    submitBtn.onclick = function() {
+        var subject = encodeURIComponent('Message from the Contact Modal');
+        var body = encodeURIComponent(userInput.value);
+        var mailtoLink = 'mailto:1564905699@qq.com?subject=' + subject + '&body=' + body;
+        window.location.href = mailtoLink; // 打开用户默认的邮件客户端
+    }
+</script>
+
+</body>
+</html>

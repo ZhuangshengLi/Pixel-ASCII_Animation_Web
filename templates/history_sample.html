@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-2">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HistoryPage</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+
+        /*背景部分*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 48px;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+            font-size: 30px;
+            color: #333333;
+        }
+
+        body {
+            position: relative;
+            /* text-align: center; */
+            background: linear-gradient(60deg, rgba(225, 225, 225, .5) 0%, rgba(0, 172, 193, 1) 100%);
+            background: url('https://moewalls.com/wp-content/uploads/2023/02/ryou-yamada-drinking-bocchi-the-rock-thumb.jpg');
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat; 
+            height: 100vh;
+            width: 100%;
+            z-index: -2;
+        }
+        .container {
+            clear: both;
+        }
+        .container .main {
+            float: left;
+            margin: 20px;
+            width: calc(100% - 480px);
+        }
+        .container .right {
+            float: left;
+            width: 400px;
+            margin: 20px;
+            color: #fff;
+            /* background-color: #fff; */
+        }
+
+        .footer {
+            position:fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        .inner-header {
+            height: 65vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .waves {
+            position: relative;
+            width: 100%;
+            height: 15vh;
+            margin-bottom: -7px;
+            min-height: 100px;
+            max-height: 150px;
+        }
+
+        .content {
+            position: relative;
+            height: 20vh;
+            text-align: center;
+            /* background-color: white; */
+        }
+
+        .parallax>use {
+            /* 使use元素执行move-forever动画 */
+            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+        }
+
+        .parallax>use:nth-child(1) {
+            /* 延迟2秒启动动画  */
+            animation-delay: -2s;
+            /* 设置动画持续时间为7秒 */
+            animation-duration: 7s;
+        }
+
+        .parallax>use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+        }
+
+        .parallax>use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+        }
+
+        .parallax>use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+        }
+
+        @keyframes move-forever {
+            0% {
+                transform: translate3d(-90px, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(85px, 0, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .waves {
+                height: 40px;
+                min-height: 40px;
+            }
+
+            .content {
+                height: 30vh;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+     
+    /*原有组件*/
+    body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #eaeaea;
+            padding: 10px;
+        }
+
+        .navbar a,
+        .navbar a:visited,
+        .navbar a:hover,
+        .navbar a:active {
+            text-decoration: none;
+            color: black;
+            background-color: transparent;
+            margin: 2px;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:last-child {
+            margin-left: auto;
+        }
+
+        .navbar a:nth-last-child(2) {
+            margin-left: 1100px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .history-item {
+            display: flex;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .cover-picture {
+            /*?*/
+            width: 100px;
+            height: 100px;
+            background-color: #b0c4de;
+            margin-right: 20px;
+        }
+
+        .history-info {
+            /*? */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .date, .setting {
+            font-size: 14px;
+        }
+
+        /*图标格式*/
+        .material-symbols-outlined {
+            font-variation-settings:
+                    'FILL' 0,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 48
+        }
+
+        /*[[me]部分效果*/
+        /* 侧边栏样式 */
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #1c1c1c;
+            overflow-x: hidden;
+            transition: 0.5s; /* 动画过渡效果 */
+            padding-top: 60px;
+        }
+
+        /* 侧边栏链接样式 */
+        .nav-link {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* 鼠标悬停在链接上时的效果 */
+        .nav-link:hover {
+            background-color: #555;
+        }
+
+        /* 页面颜色变暗的覆盖层 */
+        .overlay {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.5);
+            overflow-x: hidden;
+            transition: 0.5s;
+            display: none;
+        }
+
+        /* contact me部分 模态框（Modal）样式 */
+        .modal {
+            display: none; /* 默认隐藏模态框 */
+            position: fixed; /* 固定定位 */
+            z-index: 1; /* 置于顶层 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 全屏宽 */
+            height: 100%; /* 全屏高 */
+            overflow: auto; /* 超出滚动 */
+            background-color: rgb(0,0,0); /* 背景颜色 */
+            background-color: rgba(0,0,0,0.4); /* 黑色背景透明度 */
+        }
+
+        /* 模态框内容 */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% 从顶部和自动水平居中 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 900px; /* 宽度 */
+            height: 400px; /* 高度 */
+        }
+
+        textarea#userInput{
+            width: calc(100% - 40px);
+            height: 250px;
+            margin-bottom: 10px;
+            padding: 10px; /* 内边距 */
+            border: 1px solid #ddd; /* 边框颜色 */
+            border-radius: 5px; /* 轻微的圆角边框 */
+            resize: none; /* 禁止调整大小 */
+        }
+        /* 提交和取消按钮样式 */
+        .modal-buttons button {
+            margin-right: 10px; /* 为按钮添加右边距 */
+        }
+        /* 关闭按钮（x） */
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+       
+        /*悬浮播放器*/
+        .floating-player {
+        position: fixed;
+        top: 50%; /* 起始顶部距离设置为50%页面高度 */
+        transform: translateY(-50%);
+        right: 20px;
+        z-index: 3000;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: always; /* 默认显示 */
+    }
+    .floating-player video {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    }
+   
+    </style>
+</head>
+
+<body>
+
+
+<div class="navbar">
+    <a href="#" title="Me"><span class="material-symbols-outlined">account_circle</span></a>
+    <a href="#" title="Information"><span class="material-symbols-outlined">quiz</span></a>
+    <a href="#" title="Contact us"><span class="material-symbols-outlined">forum</span></a>
+    <a href="javascript:window.history.back()" title="Back"><span class="material-symbols-outlined">undo</span></a>
+    <a href="http://localhost:63342/untitled/src/utils/firstHomePage.html?_ijt=d1d5dsclspj8shc8jlfhcr23vq&_ij_reload=RELOAD_ON_SAVE" title="Home"><span class="material-symbols-outlined">home</span></a>
+</div>
+
+
+
+<!-- [[me]侧边栏 -->
+<div id="sideNav" class="side-nav">
+    <a href="#" class="nav-link">my profile</a>
+    <a href="#" class="nav-link">log out</a>
+    <a href="#" class="nav-link">?anythingElse?</a>
+</div>
+
+<!--information侧边栏-->
+<div id="infoNav" class="side-nav">
+    <a href="#" class="nav-link">foreword</a>
+    <a href="#" class="nav-link">comment</a>
+    <a href="#" class="nav-link">cited literatures</a>
+    <a href="#" class="nav-link">we say..</a>
+</div>
+
+<!-- contact me模态框（Modal） -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Say anything, we can see</h3>
+        <textarea id="userInput" placeholder="Hi,message here..."></textarea>
+        <div class="modal-bottons">
+            <button id="submitBtn">Submit</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+    <div class="video-list" id="video-list">
+
+
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="main">
+        <div id="floatingVideoPlayer">
+            <video id="videoPlayer" controls width="100%" height="100%" style="max-width:100%;">
+                <source src="" type="video/mp4">
+                
+            </video>
+            <span class="close-video">&times;</span>
+        </div>
+    </div>
+    <div class="right">
+        <div class="header">History</div>
+    
+    
+        <div class="history-item">
+            <div class="cover-picture"></div>
+            <div class="history-info">
+                <div class="title">
+                    <a href="http://localhost:63342/untitled/src/utils/History-1.html?_ijt=ocglj9v4vd4q580cssk3kgk2la&_ij_reload=RELOAD_ON_SAVE" title="Title xxx1">Title xxx1</a>
+                </div>
+                <div class="date">Date xx, Setted xx</div>
+            </div>
+        </div>
+    
+        <div class="history-item">
+            <div class="cover-picture">
+                <img src="" alt="">
+            </div>
+            <div class="history-info">
+                <div class="title">Title xxx</div>
+                <div class="date">Date xx, Setted xx</div>
+            </div>
+        </div>
+        <div class="history-item">
+            <div class="cover-picture"></div>
+            <div class="history-info">
+                <div class="title">Title xxx</div>
+                <div class="date">Date xx, Setted xx</div>
+            </div>
+        </div>
+        <div class="history-item">
+            <div class="cover-picture"></div>
+            <div class="history-info">
+                <div class="title">Title xxx</div>
+                <div class="date">Date xx, Setted xx</div>
+            </div>
+        </div>
+        <div class="history-item">
+            <div class="cover-picture"></div>
+            <div class="history-info">
+                <div class="title">Title xxx</div>
+                <div class="date">Date xx, Setted xx</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <!--
+        xmlns:SVG命名看见URI
+        viewBox:定义当前视口（viewbox）中绘制区域的位置大小
+        preserveeAspectRatio：定义了绘制区域在视口中的对齐方式
+        shape-rendering：定义了形状的渲染方式（如何呈现图像的锯齿效果）
+     -->
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+
+    </svg>
+    <!--单击播放事件-->
+    <div class="title">
+        <a href="javascript:void(0);" onclick="playVideo('http://example.com/path_to_video.mp4')">Title xxx1</a>
+    </div>    
+</div>
+
+    <script>
+        /*me部分*/
+        // 获取侧边栏元素
+        var sideNav = document.getElementById('sideNav');
+        // 获取覆盖层元素
+        var overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        // 将覆盖层添加到页面中
+        document.body.appendChild(overlay);
+    
+        // 获取打开侧边栏的按钮
+        var meBtn = document.querySelector('.navbar a[title="Me"]');
+    
+        // 点击按钮打开侧边栏
+        meBtn.onclick = function() {
+            sideNav.style.width = '25%'; // 设置侧边栏宽度为屏幕的1/4
+            overlay.style.display = 'block'; // 显示覆盖层
+        }
+    
+        // 点击覆盖层关闭侧边栏
+        overlay.onclick = function() {
+            sideNav.style.width = '0';
+            overlay.style.display = 'none';
+        }
+    
+        /*Information栏*/
+        // 获取 Information 侧边栏元素
+        var infoNav = document.getElementById('infoNav');
+        // 获取 Information 按钮
+        var infoBtn = document.querySelector('.navbar a[title="Information"]');
+    
+        // 点击 Information 按钮打开侧边栏
+        infoBtn.onclick = function() {
+            infoNav.style.width = '25%'; // 设置侧边栏宽度为屏幕的1/4
+            overlay.style.display = 'block'; // 显示覆盖层
+        }
+    
+        // 使用同一个覆盖层元素关闭侧边栏
+        overlay.onclick = function() {
+            // 关闭所有可能打开的侧边栏
+            closeSideNavs();
+        }
+    
+        function closeSideNavs() {
+            // 设置所有侧边栏的宽度为 0 来关闭它们
+            var sideNavs = document.getElementsByClassName('side-nav');
+            for(var i = 0; i < sideNavs.length; i++) {
+                sideNavs[i].style.width = '0';
+            }
+            // 隐藏覆盖层
+            overlay.style.display = 'none';
+        }
+    
+        /*contact me部分*/
+        // 获取模态框元素
+        var modal = document.getElementById('contactModal');
+        // 获取打开模态框的按钮
+        var btn = document.querySelector('.navbar a[title="Contact us"]');
+        // 获取关闭按钮元素
+        var span = document.getElementsByClassName('close-button')[0];
+        // 获取取消按钮元素
+        var cancelBtn = document.getElementById('cancelBtn');
+        // 获取提交按钮
+        var submitBtn = document.getElementById('submitBtn');
+        // 获取用户输入元素
+        var userInput = document.getElementById('userInput');
+    
+        // 点击按钮打开模态框
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+    
+        // 点击（x）按钮关闭模态框
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+    
+        // 点击取消按钮关闭模态框
+        cancelBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+    
+        // 点击模态框外部时关闭模态框
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    
+        // 点击提交按钮发送邮件
+        submitBtn.onclick = function() {
+            var subject = encodeURIComponent('Message from the Contact Modal');
+            var body = encodeURIComponent(userInput.value);
+            var mailtoLink = 'mailto:1564905699@qq.com?subject=' + subject + '&body=' + body;
+            window.location.href = mailtoLink; // 打开用户默认的邮件客户端
+        }
+        // 播放器
+        function playVideo(videoUrl) {
+            var player = document.getElementById('floatingVideoPlayer');
+            var video = document.getElementById('videoPlayer');
+            var source = video.getElementsByTagName('source')[0];
+            source.src = videoUrl;
+            video.load();
+            player.style.display = 'block';
+        }
+
+        function closePlayer() {
+            var player = document.getElementById('floatingVideoPlayer');
+            player.style.display = 'none';
+            var video = document.getElementById('videoPlayer');
+            video.pause();
+        }
+</script>
+
+    </script>
+    
+</body>
+
+</html>
