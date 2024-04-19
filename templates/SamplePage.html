@@ -138,6 +138,7 @@
             border: 1px solid #888;
             width: 900px; /* 宽度 */
             height: 400px; /* 高度 */
+            z-index: 10;
         }
 
         textarea#userInput{
@@ -170,16 +171,21 @@
         }
 
         .big-title {
-            position: fixed;
-            top: 370px; /* 调整文字显示的垂直位置 */
-            width: 100%;
-            text-align: center;
-            font-size: 84px;
-            font-family: 'Arial', sans-serif; /* 字体 */
-            color: #f5ffbc; /* 字体颜色 */
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 2); /* 添加阴影效果 */
-            z-index: 1000; /* 确保文字显示在最上层 */
-        }
+        position: fixed;
+        top: 370px; /* 调整文字显示的垂直位置 */
+        left: 0;
+        right: 0; /* 从左到右覆盖整个视口宽度 */
+        display: flex; /* 启用Flex布局 */
+        flex-direction: column; /* 子元素垂直排列 */
+        justify-content: space-between; /* 子元素在主轴（此处为垂直）上分散对齐 */
+        height: 200px; /* 设置高度以确定上下文本的分散程度 */
+        font-size: 84px; /* 字体大小 */
+        font-family: 'Arial', sans-serif; /* 字体类型 */
+        color: #f5ffbc; /* 字体颜色 */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* 文本阴影效果 */
+        z-index: 5; /* 确保文字显示在最上层 */
+        text-align: center; /* 文本居中对齐 */
+    }
 
     </style>
 
@@ -190,7 +196,9 @@
     </style>
 </head>
 <body>
-<div class="big-title">PIX | ASC</div>
+<div class="big-title">
+    <div>PIX | ASC</div>
+</div>
 
 <div class="navbar">
     <a href="#" title="Me"><span class="material-symbols-outlined">account_circle</span></a>

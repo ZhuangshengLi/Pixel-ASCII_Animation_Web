@@ -62,11 +62,11 @@ def history():
 
 @app.route('/upload')
 def upload():
-    return render_template('upload.html')
-
-@app.route('/upload_video_page')
-def upload_video_page():
     return render_template('upload_video_page.html')
+
+# @app.route('/upload_video_page')
+# def upload_video_page():
+#     return render_template('upload_video_page.html')
 
 @app.route('/SamplePage')
 def SamplePage():
@@ -88,7 +88,7 @@ def video_play():
     # video_name = 'final_22.mp4'
     print('cur_video', cur_video)
     # /Users/anthony/PycharmProjects/pythonProject6/Pixel-ASCII_Animation_Web/project/22.mp4
-    return render_template('video_play.html', video_name = video_name)
+    return render_template('video_playn.html', video_name = video_name)
 
 # Flask应用程序实例的run方法启动WEB服务器
 if __name__ == '__main__':

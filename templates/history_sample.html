@@ -347,7 +347,7 @@
         border: 1px solid #ddd;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        display: always; /* 默认显示 */
+        {#display: always; /* 默认显示 */#}
     }
     .floating-player video {
     width: 100%;
@@ -365,7 +365,7 @@
     <a href="#" title="Information"><span class="material-symbols-outlined">quiz</span></a>
     <a href="#" title="Contact us"><span class="material-symbols-outlined">forum</span></a>
     <a href="javascript:window.history.back()" title="Back"><span class="material-symbols-outlined">undo</span></a>
-    <a href="http://localhost:63342/untitled/src/utils/firstHomePage.html?_ijt=d1d5dsclspj8shc8jlfhcr23vq&_ij_reload=RELOAD_ON_SAVE" title="Home"><span class="material-symbols-outlined">home</span></a>
+    <a href="{{ url_for('index') }}" title="Home"><span class="material-symbols-outlined">home</span></a>
 </div>
 
 
@@ -398,18 +398,13 @@
     </div>
 </div>
 
-    <div class="video-list" id="video-list">
-
-
-
-    </div>
-</div>
+    <div class="video-list" id="video-list"></div>
 
 <div class="container">
     <div class="main">
         <div id="floatingVideoPlayer">
             <video id="videoPlayer" controls width="100%" height="100%" style="max-width:100%;">
-                <source src="" type="video/mp4">
+                <source src="../static/videos/final_heitaa.mp4" type="video/mp4">
                 
             </video>
             <span class="close-video">&times;</span>
@@ -421,6 +416,7 @@
     
         <div class="history-item">
             <div class="cover-picture"></div>
+
             <div class="history-info">
                 <div class="title">
                     <a href="http://localhost:63342/untitled/src/utils/History-1.html?_ijt=ocglj9v4vd4q580cssk3kgk2la&_ij_reload=RELOAD_ON_SAVE" title="Title xxx1">Title xxx1</a>
@@ -431,7 +427,6 @@
     
         <div class="history-item">
             <div class="cover-picture">
-                <img src="" alt="">
             </div>
             <div class="history-info">
                 <div class="title">Title xxx</div>
@@ -602,8 +597,6 @@
         }
 </script>
 
-    </script>
-    
 </body>
 
 </html>

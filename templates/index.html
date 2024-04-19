@@ -27,19 +27,60 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
-#sample a,
+/*解决区块点击问题*/
+#sample {
+    position: relative;
+    line-height: 756px;
+}
+#sample a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
 #sample a:visited {
     text-decoration: none;
     color: inherit;
 }
-
-#upload a,
+#upload {
+    position: relative;
+    line-height: 756px;
+}
+#upload a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0;
+}
 #upload a:visited {
     text-decoration: none;
     color: inherit;
 }
+#history {
+    position: relative;
+    line-height: 756px;
+}
+#history a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
 
-#history a,
+}
 #history a:visited {
     text-decoration: none;
     color: inherit;
@@ -356,7 +397,7 @@ textarea#userInput{
     <a href="#" title="Me"><span class="material-symbols-outlined">account_circle</span></a>
     <a href="#" title="Information"><span class="material-symbols-outlined">quiz</span></a>
     <a href="#" title="Contact us"><span class="material-symbols-outlined">forum</span></a>
-    <a href="http://localhost:63342/untitled/src/utils/firstHomePage.html?_ijt=d1d5dsclspj8shc8jlfhcr23vq&_ij_reload=RELOAD_ON_SAVE"
+    <a href="{{ url_for('index') }}"
        title="Home"><span class="material-symbols-outlined">Home</span></a>
 </div>
 <section class="parallax">
@@ -388,6 +429,13 @@ textarea#userInput{
             <a href="{{ url_for('history') }}"
                title="<h2>History</h2>"><h1>History</h1></a>
         </div>
+    </div>
+    <div style="margin-top: auto;">
+        <div style="height: 100px;">
+            </div>
+        <div style="color: #4fa458; text-align: center; font-size: 15px;">
+            created by group 28, thank you!
+            </div>
     </div>
 
 </section>
