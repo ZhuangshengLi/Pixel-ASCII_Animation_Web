@@ -97,7 +97,7 @@ From the group of University of Liverpool
 
   
 
-   Visit [Home Page](qwqpixel.top:5000) to start using. 
+   Visit [Home Page](http://qwqpixel.top:5000) to start using. 
 
   
 
@@ -129,9 +129,7 @@ From the group of University of Liverpool
 Back-end architecture: FLASK
  
 
-Front-end architecture: HTML 
-                        Java Script   
-                        CSS
+Front-end architecture: HTML      Java Script      CSS
   
 
    
