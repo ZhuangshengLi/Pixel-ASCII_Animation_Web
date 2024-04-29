@@ -5,11 +5,11 @@ From the group of University of Liverpool
 
 <img src="https://github.com/ZhuangshengLi/Pixel-ASCII_Animation_Web/blob/ae4109f6ad0cda111423a315b9dacf1493c8525c/code/example/00004.png" width=600px>
 
-# Character Video Converter 
+# Pixel-ASCII_Animation 
 
   
 
-** Character Video Converter** is an innovative website, it allows users to upload video and convert it to character video format. The project uses advanced image processing technology, each video frame is analyzed and mapped to a specific A pattern composed of characters, created a unique character version of the video. 
+** Pixel-ASCII_Animation** is an innovative website, it allows users to upload video and convert it to character video format. The project uses advanced image processing technology, each video frame is analyzed and mapped to a specific A pattern composed of characters, created a unique character version of the video. 
 
   
 
@@ -97,7 +97,7 @@ From the group of University of Liverpool
 
   
 
-   Visit [Home Page](http://localhost:63342/untitled/src/utils/firstHomePage.html?_ijt=a1m9r08rgpridg6nrhd606mh28&_ij_reload=RELOAD_ON_SAVE) to start using. 
+   Visit [Home Page](qwqpixel.top:5000) to start using. 
 
   
 
@@ -105,23 +105,6 @@ From the group of University of Liverpool
 
   
 
-- **Upload video**： 
-
-  
-
-   Go to [Upload Page](http://localhost:63342/untitled/src/utils/Upload.html?_ijt=d13tvk6sd13git5bc64qh3vrr3&_ij_reload=RELOAD_ON_SAVE) upload your video file. 
-
-  
-
-   
-
-  
-
-- **Historical record**： 
-
-  
-
-   View your conversion history 在 [History Page](http://localhost:63342/untitled/src/utils/HistoryPage.html?_ijt=qn3753s0v5gia9igmq2dg3bv78&_ij_reload=RELOAD_ON_SAVE). 
 
   
 
@@ -143,10 +126,12 @@ From the group of University of Liverpool
 
 ## System architecture 
 
-  
+Back-end architecture: FLASK
+ 
 
-   
-
+Front-end architecture: HTML 
+                        Java Script   
+                        CSS
   
 
    
