@@ -129,7 +129,7 @@ From the group of University of Liverpool
 Back-end architecture: FLASK
  
 
-Front-end architecture: HTML      Java Script      CSS
+Front-end architecture: HTML, Java Script, CSS
   
 
    
