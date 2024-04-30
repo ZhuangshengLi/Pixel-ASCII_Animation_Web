@@ -9,7 +9,7 @@ From the group of University of Liverpool
 
   
 
-** Pixel-ASCII_Animation** is an innovative website, it allows users to upload video and convert it to character video format. The project uses advanced image processing technology, each video frame is analyzed and mapped to a specific A pattern composed of characters, created a unique character version of the video. 
+**Pixel-ASCII_Animation** is an innovative website, it allows users to upload video and convert it to character video format. The project uses advanced image processing technology, each video frame is analyzed and mapped to a specific A pattern composed of characters, created a unique character version of the video. 
 
   
 
