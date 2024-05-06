@@ -3,7 +3,7 @@ import os.path
 
 
 def init(path):
-    globals.set_value('work_path', '/Users/anthony/PycharmProjects/pythonProject6/Pixel-ASCII_Animation_Web')
+    globals.set_value('work_path', '/home/hjh/Pixel-ASCII_Animation_Web')
 
     # 原视频时长（秒）
     globals.set_value('dur', 0)

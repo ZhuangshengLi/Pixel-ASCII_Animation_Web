@@ -44,7 +44,40 @@ def button_clicked_PIXEL():
     print(f"{cur_video}")
     execute(cur_video)
     processing_status = True
-    return "convert PIXEL success"
+    try:
+        for filename in os.listdir("project/frames_of_pixel"):
+            file_path = os.path.join("project/frames_of_pixel", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+
+        for filename in os.listdir("project/frames_of_original"):
+            file_path = os.path.join("project/frames_of_original", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+
+        for filename in os.listdir("project/frames_of_ascii"):
+            file_path = os.path.join("project/frames_of_ascii", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+        print("delete success")
+    except Exception as e:
+        print("file doesn't exist")
+    return "convert Pixel success"
 
 @app.route('/button_clicked_Ascii', methods=['POST'])
 def button_clicked_Ascii():
@@ -54,6 +87,39 @@ def button_clicked_Ascii():
     print(f"{cur_video}")
     execute(cur_video)
     processing_status = True
+    try:
+        for filename in os.listdir("project/frames_of_pixel"):
+            file_path = os.path.join("project/frames_of_pixel", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+
+        for filename in os.listdir("project/frames_of_original"):
+            file_path = os.path.join("project/frames_of_original", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+
+        for filename in os.listdir("project/frames_of_ascii"):
+            file_path = os.path.join("project/frames_of_ascii", filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # 删除文件或链接
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)  # 删除空文件夹
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
+        print("delete success")
+    except Exception as e:
+        print("file doesn't exist")
     return "convert Ascii success"
 
 @app.route('/history')
