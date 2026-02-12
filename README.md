@@ -136,40 +136,6 @@ Front-end architecture: HTML, Java Script, CSS
 
   
 
-## Contributions 
-
-  
-
-   
-
-  
-
-   
-
-  
-
-## License 
-
-  
-
-   
-
-  
-
-   
-
-  
-
-## Community  
-
-   
-
-  
-
-Join our community, together with discussion and improvement Character Video Converter： 
-
-  
-
    
 
   
