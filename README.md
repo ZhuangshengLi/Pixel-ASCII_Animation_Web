@@ -131,17 +131,3 @@ Back-end architecture: FLASK
 
 Front-end architecture: HTML, Java Script, CSS
   
-
-   
-
-  
-
-   
-
-  
-
-- Wechat： 
-
-  
-
-- GitHub Discussions: 
